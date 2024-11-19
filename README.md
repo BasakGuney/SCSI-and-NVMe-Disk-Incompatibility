@@ -44,9 +44,15 @@ echo "- - -" | sudo tee /sys/class/scsi_host/host*/scan
 <br>
 
 ```bash
-pvs
+df -h
 ```
-Run the following command above to check the volume group name which our main disk uses.(it's usually rl).
+Run the command above to check your root filesyste's size. You can compare it after extending the filesystem.
+<br>
+
+```bash
+vgs
+```
+Run the command above to check the volume group name which our main disk uses.(it's usually rl).
 
 <br>
 
@@ -67,9 +73,24 @@ lvextend -l +100%FREE  <path-to-root-lv>
 ```
 The command above will extend the logical volume with the all free space in the volume group where it is located.  
 <br>
+<br>
 
+You can extend the filesystem according to your filesystem type( XFS, ext4 etc.)    
+
+To check your filesystem type you can use the following command:
+```bash
+df -T
+```
+
+For XFS,
 ```bash
 xfs_growfs /
+```
+The command above will extend the root filesystem.  
+<br>
+For ext4,
+```bash
+resize2fs /dev/<added_disk_name>
 ```
 The command above will extend the root filesystem.  
 <br>
