@@ -46,7 +46,7 @@ echo "- - -" | sudo tee /sys/class/scsi_host/host*/scan
 ```bash
 df -h
 ```
-Run the command above to check your root filesyste's size. You can compare it after extending the filesystem.
+Run the command above to check your root filesystem's size. You can compare it after extending the filesystem.
 <br>
 
 ```bash
